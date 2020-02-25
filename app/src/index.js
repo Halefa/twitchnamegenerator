@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {adjectives1} from './adjectives1';
+import {adjectives2} from './adjectives2';
+import {nouns} from './nouns';
 import './index.css';
 
   class App extends React.Component {
     constructor(props) {
         super(props);
-        this.state= {
-          adjectives1: ['Loud','Shrill','Unique','Fast','Stupid'],
-          adjectives2: ['Blue','Small','Soft','Expensive','Glittering'],
-          nouns: ['Dingus','Sheep','Lemur','Alpaca','Emu','Binturong','Cassowary'],
+        this.state= {    
+          adjectives1: adjectives1,
+          adjectives2: adjectives2,
+          nouns: nouns,
           randName: null,
           clicked: false,
         };
