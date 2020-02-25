@@ -6,8 +6,11 @@ import './index.css';
     constructor(props) {
         super(props);
         this.state= {
-          adjectives: ['Blue','Small','Soft','Expensive','Glittering'],
-          randAdjective: null,
+          adjectives1: ['Loud','Shrill','Unique','Fast','Stupid'],
+          adjectives2: ['Blue','Small','Soft','Expensive','Glittering'],
+          nouns: ['Dingus','Sheep','Lemur','Alpaca','Emu','Binterong','Cassowary'],
+          randName: null,
+          clicked: false,
         };
   
         // This binding is necessary to make `this` work in the callback
@@ -16,20 +19,32 @@ import './index.css';
     
       handleClick() {       
         this.setState({          
-          randAdjective: this.state.adjectives[Math.floor(Math.random() * this.state.adjectives.length)] + this.state.adjectives[Math.floor(Math.random() * this.state.adjectives.length)] + this.state.adjectives[Math.floor(Math.random() * this.state.adjectives.length)],
+          randName: this.state.adjectives1[Math.floor(Math.random() * this.state.adjectives1.length)] + this.state.adjectives2[Math.floor(Math.random() * this.state.adjectives2.length)] + this.state.nouns[Math.floor(Math.random() * this.state.nouns.length)],
+          clicked: true,
         });
       }
       
       render() {
-        return (
+        if (this.state.clicked) {
+          return (
             <div>
-              <h1>Your name is {this.state.randAdjective}</h1>
+              <h1>Your name is {this.state.randName}</h1>             
            
               <button onClick={this.handleClick}>
           Generate!
         </button>
             </div>
           );
+        }
+        return (
+          <div>
+            <h1>Click the button to generate your new Twitch name!</h1>             
+         
+            <button onClick={this.handleClick}>
+        Generate!
+      </button>
+          </div>
+        );
       }
   }
   
