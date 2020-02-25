@@ -8,7 +8,7 @@ import './index.css';
         this.state= {
           adjectives1: ['Loud','Shrill','Unique','Fast','Stupid'],
           adjectives2: ['Blue','Small','Soft','Expensive','Glittering'],
-          nouns: ['Dingus','Sheep','Lemur','Alpaca','Emu','Binterong','Cassowary'],
+          nouns: ['Dingus','Sheep','Lemur','Alpaca','Emu','Binturong','Cassowary'],
           randName: null,
           clicked: false,
         };
@@ -31,7 +31,7 @@ import './index.css';
               <h1>Your name is {this.state.randName}</h1>             
            
               <button onClick={this.handleClick}>
-          Generate!
+          Again!
         </button>
             </div>
           );
