@@ -12,6 +12,9 @@ import './index.css';
           adjectives1: adjectives1,
           adjectives2: adjectives2,
           nouns: nouns,
+          randAdjective1: null,
+          randAdjective2: null,
+          randNoun: null,
           randName: null,
           clicked: false,
         };
@@ -21,8 +24,11 @@ import './index.css';
       }
     
       handleClick() {       
-        this.setState({          
-          randName: this.state.adjectives1[Math.floor(Math.random() * this.state.adjectives1.length)] + this.state.adjectives2[Math.floor(Math.random() * this.state.adjectives2.length)] + this.state.nouns[Math.floor(Math.random() * this.state.nouns.length)],
+        this.setState({
+          randAdjective1: this.state.adjectives1[Math.floor(Math.random() * this.state.adjectives1.length)],
+          randAdjective2: this.state.adjectives2[Math.floor(Math.random() * this.state.adjectives2.length)],
+          randNoun: this.state.nouns[Math.floor(Math.random() * this.state.nouns.length)],
+          randName: this.state.randAdjective1.charAt(0).toUpperCase() + this.state.randAdjective1.slice(1) + this.state.randAdjective2.charAt(0).toUpperCase() + this.state.randAdjective2.slice(1) + this.state.randNoun.charAt(0).toUpperCase() + this.state.randNoun.slice(1),
           clicked: true,
         });
       }
