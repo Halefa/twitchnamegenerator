@@ -12,7 +12,6 @@ import './index.css';
           adjectives1: adjectives1,
           adjectives2: adjectives2,
           nouns: nouns,
-          randAdjective1: null,
           randName: null,
           clicked: false,
         };
@@ -22,29 +21,20 @@ import './index.css';
       }
     
       handleClick() {       
-        // below will not work, because you set `randAdjective` "first", but it will actually NOT be set when you set randName
-        // Makes sense
-
-        // motherfuck. Now onwards to the solution
+        //capitalise_Words 
+        function capitalise(string)
+        {          
+        return string.charAt(0).toUpperCase() + string.slice(1);
+        }
 
         // let us have a variable
-        let randAdj = this.state.adjectives1[Math.floor(Math.random() * this.state.adjectives1.length)];
+        let randAdj1 = this.state.adjectives1[Math.floor(Math.random() * this.state.adjectives1.length)];
+        let randAdj2 = this.state.adjectives2[Math.floor(Math.random() * this.state.adjectives2.length)];
+        let randNoun = this.state.nouns[Math.floor(Math.random() * this.state.nouns.length)];
 
-        this.setState({
-          // that function isn't here yet, so, no capitalisation for you yet (just kidding, it does work with the code above) :(
-          // randAdjective1: randAdj.capitalise()
-          randAdjective1: randAdj,
-          randName: randAdj // this works because the variable is in the scope, you can also use other this.state.variables, but they need to be set BEFORE, not in the same setState call - J: Mmmh, I thiiiink I can follow.
-          // excellent
-          // does it work as you expect?
-          // PS: bonus orgasms: build a pure function that gets a string as an argument and returns the same string with an uppecased first letter (much easier than thinking about the .prototype thing and *this*)
-          // Yes, I can see that randAdjectie1 changes and randName changes accordingly
-          // I thought this was my project and not a task I get points for :P :D Hihihi
-          //  :) *flies away
-        f/l/ag
-         flap
-         flap
-
+        this.setState({    
+          randName: capitalise(randAdj1) + capitalise(randAdj2) + capitalise(randNoun),
+          clicked: true,
         })
         
         /*
