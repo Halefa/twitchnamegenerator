@@ -1,43 +1,43 @@
-// index.js
+// External dependencies
+const axios = require('axios')
+const cheerio = require('cheerio')
+const chalk = require('chalk')
+const fs = require('fs')
 
-const cheerio = require('cheerio');
-const axios = require('axios');
-const fs = require('fs');
+const url = 'https://twitchemotes.com/'
+const outputFile = 'Twitch-emotes.js'
+let TwitchEmotes = [];
 
-let twitchEmotes;
+console.log(chalk.yellow.bgBlue(`\n  Scraping of ${chalk.underline.bold(url)} initiated...\n`))
 
-axios.get('https://twitchemotes.com/').then((response) => {
-  // Load the web page source code into a cheerio instance
-  const $ = cheerio.load(response.data)
+const getWebsiteContent = async (url) => {
+  try {
+    const response = await axios.get(url)
+    const $ = cheerio.load(response.data)
 
-  // The pre.highlight.shell CSS selector matches all `pre` elements
-  // that have both the `highlight` and `shell` class
-  const urlElems = $('body > div.container > div:nth-child(4)');
-  const test = $(urlElems).text();
-  console.log(test);
-
-  // We now loop through all the elements found
-
-
-
-  // for (let i = 0; i < urlElems.length; i++) {
-  //   const emoteName = $(urlElems[i]).find('div')[0];
-  //   const emote = $(emoteName).text();
-  //       console.log(emote);
-
-    // if (emoteName) {
-    //     const emote = $(emoteName).text();
-    //     console.log(emote);
-    //   twitchEmotes.push ($(emoteName).text());
-    // }
-    
-    
-    // Converts each single object to a string and adds it to a long string with all employees
-    // let employee = employees.getFormattedString();
-    // employeeList = employeeList + employee;
-  //  }
-//   fs.writeFile('kontaktliste.vcf', employeeList, function (err) {
-//     if (err) return console.log(err);
-// console.log(twitchEmotes);
+    // New Lists
+    $('body > div.container > div:nth-child(9) > .card-body > .row > .col-md-2').map((i, el) => {
+      let emote = $(el).find('center').text();
+      console.log(emote);
+      TwitchEmotes.push("'" + emote + "'");
+      console.log(TwitchEmotes);
+      exportResults(TwitchEmotes)
+    })
+} catch (error) {
+    console.error(error)
   }
-  )
+
+};
+
+const exportResults = (TwitchEmotes) => {
+    // write to a new file named 2pac.txt
+    fs.writeFile(outputFile, TwitchEmotes, (err) => {
+      // throws an error, you could also catch it here
+      if (err) throw err;
+    
+      // success case, the file was saved
+      console.log('Emotes saved!');
+    });
+    }
+
+getWebsiteContent(url)

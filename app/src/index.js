@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {adjectives1} from './adjectives1';
 import {adjectives2} from './adjectives2';
 import {nouns} from './nouns';
+import {emotes} from './emotes';
 import './index.css';
 
   class App extends React.Component {
@@ -12,6 +13,7 @@ import './index.css';
           adjectives1: adjectives1,
           adjectives2: adjectives2,
           nouns: nouns,
+          emotes: emotes,
           randName: null,
           clicked: false,
         };
@@ -31,9 +33,10 @@ import './index.css';
         let randAdj1 = this.state.adjectives1[Math.floor(Math.random() * this.state.adjectives1.length)];
         let randAdj2 = this.state.adjectives2[Math.floor(Math.random() * this.state.adjectives2.length)];
         let randNoun = this.state.nouns[Math.floor(Math.random() * this.state.nouns.length)];
+        let randEmote = this.state.emotes[Math.floor(Math.random() * this.state.emotes.length)];
 
         this.setState({    
-          randName: capitalise(randAdj1) + capitalise(randAdj2) + capitalise(randNoun),
+          randName: capitalise(randAdj1) + capitalise(randAdj2) + capitalise(randNoun) + randEmote,
           clicked: true,
         })
         
