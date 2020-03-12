@@ -3,9 +3,10 @@ import ReactDOM from "react-dom";
 import { adjectives1 } from "./adjectives1";
 import { adjectives2 } from "./adjectives2";
 import { nouns } from "./nouns";
-import { emotes } from "./emotes";
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import "./index.css";
 import logo from "./logo.png";
+import copy from "./content_copy.png";
 
 class App extends React.Component {
   constructor(props) {
@@ -60,7 +61,9 @@ class App extends React.Component {
             <h1>Your name is </h1>
 
           <span className="purple name">
-           {this.state.randName}
+           {this.state.randName}  <CopyToClipboard text={this.state.randName}>
+           <img src={copy} width="30" />
+          </CopyToClipboard>
           </span>
           </div>
 
