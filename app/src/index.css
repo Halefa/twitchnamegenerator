@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:300&display=swap");
+
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: light;
+  text-align: left;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 100vw;
+  height: 100vh;
+}
+
+.headline-generate, .headline-name, .button, .footer {
+    margin-left: 3vW;
+}
+
+.headline-generate, .headline-name {
+  width: 90%;
+}
+
+.button {
+  margin-top: 2em;
+}
+
+.logo img {
+    margin-left: 2vW;
+  border: none;
+  width: 20vw;
+  max-width: 150px;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+.purple {
+  color: #9146ff;
+}
+
+.name {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 100;
+  text-shadow: 1px 1px 1px rgba(255,255,255,0.86);
+}
+
+button {
+  outline: none;
+  display: inline-block;
+  border: none;
+  padding: 1rem 2rem;
+  background: #9146ff;
+  color: #fff;
+  font-size: 2rem;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  font-weight: 100;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+button:hover {
+  outline: none;
+  background: #7234cd;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  text-decoration: none;
+}
+
+button:focus {
+  outline: none;
+}
+
+.footer {
+    font-size: .8rem;
+    color: #a9a9aa;
+    margin-top: 3em;
+}
+
+.footer a {
+    color: rgb(226, 225, 225);
+    text-decoration: none;
+}
+
+.footer a:hover {
+text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+  .headline-generate h1 {
+    font-size: 4rem;
+  }
+  .headline-name h1 {
+    font-size: 5rem;
+  }
+  .name {
+    font-size: 2.2rem;
+  }
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1024px) {
+  .headline-generate h1 {
+    font-size: 4.5rem;
+  }
+  .headline-name h1 {
+    font-size: 5.5rem;
+  }
+  .name {
+    font-size: 2.4rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .logo img {
+    max-width: 200px;
+  }
+}
